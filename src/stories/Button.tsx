@@ -35,7 +35,7 @@ export const Button = ({
   return (
     <button
       type="button"
-    className="bg"
+    className="bg-black"
       {...props}
     >
       {label}
