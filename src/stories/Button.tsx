@@ -35,7 +35,7 @@ export const Button = ({
   return (
     <button
       type="button"
-    className="bg-black"
+    className="bg-black hover:bg-red-500"
       {...props}
     >
       {label}
