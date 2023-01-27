@@ -14,22 +14,16 @@ const Switch = ({ value, setValue }: SwitchType) => {
 
   return (
     <label
-      className="relative inline-flex h-5 w-9 cursor-pointer"
+      className={clsx(
+        "t relative inline-flex h-5 w-9 cursor-pointer rounded-2xl bg-gray-700 "
+      )}
       onClick={handleLabelClick}
     >
-      {/* <input
-        type="checkbox"
-        className="h-0 w-0 opacity-0"
-        ref={checkboxRef}
-        checked={value}
-      /> */}
       <span
         className={clsx(
-          `absolute top-0 left-0 right-0 bottom-0 transform rounded-2xl 
-        bg-gray-700 before:absolute before:top-0.5 before:left-0.5 before:h-4 before:w-4 before:rounded-full 
-        before:border before:border-gray-50 before:bg-green-400 before:transition-transform 
-        before:duration-300 before:content-[""]`,
-          [value && "before:translate-x-4"]
+          `t absolute top-0.5 left-0.5 h-4 w-4 transform rounded-full border-2 
+           border-gray-50  transition-all duration-300`,
+          [value ? "translate-x-4 bg-green-400" : "bg-gray-500"]
         )}
       ></span>
     </label>
