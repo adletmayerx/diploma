@@ -5,6 +5,8 @@ const config = {
     extend: {
       colors: {
         shamrock: "#3DDC84",
+        tiber: "#073042",
+        "mine-shaft": "#202020",
       },
     },
   },
