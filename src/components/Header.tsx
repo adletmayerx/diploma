@@ -8,18 +8,20 @@ const Header = () => {
 
   return (
     <header
-      className={clsx("flex items-center justify-between px-4 py-5 md:px-8 xl:px-16", [
+      className={clsx("flex justify-center", [
         router.pathname === "/" ? "bg-tiber" : "bg-mine-shaft",
       ])}
     >
-      <MemoLogoIcon />
-      <div className="flex justify-start gap-4 md:gap-8">
-        <button className="text-xs font-medium text-gray-50">
-          Регистрация
-        </button>
-        <button className="h-7 w-14 rounded bg-shamrock text-xs font-medium leading-relaxed text-gray-900 align-middle md:h-8 md:w-20">
-          Войти
-        </button>
+      <div className="flex max-w-7xl items-center justify-between px-4 py-5 md:px-8 xl:px-16">
+        <MemoLogoIcon />
+        <div className="flex justify-start gap-4 md:gap-8">
+          <button className="text-xs font-medium text-gray-50">
+            Регистрация
+          </button>
+          <button className="h-7 w-14 rounded bg-shamrock align-middle text-xs font-medium leading-relaxed text-gray-900 md:h-8 md:w-20">
+            Войти
+          </button>
+        </div>
       </div>
     </header>
   );
