@@ -8,6 +8,14 @@ const config = {
         tiber: "#073042",
         "mine-shaft": "#202020",
       },
+      width: {
+        "210px": "210px",
+        "310px": "310px",
+      },
+      height: {
+        "206px": "206px",
+        "304px": "304px",
+      },
     },
   },
   plugins: [],

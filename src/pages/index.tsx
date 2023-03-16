@@ -1,8 +1,12 @@
 import { type NextPage } from "next";
-import { Layout } from "~/components";
+import { Promo } from "~/components";
 
 const Home: NextPage = () => {
-  return <></>;
+  return (
+    <>
+      <Promo />
+    </>
+  );
 };
 
 export default Home;
