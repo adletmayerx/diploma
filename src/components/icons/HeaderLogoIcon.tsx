@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function LogoIcon(props: React.SVGProps<SVGSVGElement>) {
+function HeaderLogoIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width={38} height={38} fill="none" {...props}>
       <path
@@ -15,5 +15,5 @@ function LogoIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-const MemoLogoIcon = React.memo(LogoIcon);
-export default MemoLogoIcon;
+const MemoHeaderLogoIcon = React.memo(HeaderLogoIcon);
+export default MemoHeaderLogoIcon;

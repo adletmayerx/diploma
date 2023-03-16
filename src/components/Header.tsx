@@ -1,5 +1,5 @@
 import React from "react";
-import MemoLogoIcon from "./icons/LogoIcon";
+import MemoLogoIcon from "./icons/HeaderLogoIcon";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 
