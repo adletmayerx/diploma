@@ -12,7 +12,7 @@ const Header = () => {
         router.pathname === "/" ? "bg-tiber" : "bg-mine-shaft",
       ])}
     >
-      <div className="flex max-w-7xl items-center justify-between px-4 py-5 md:px-8 xl:px-16">
+      <div className="flex max-w-7xl w-full items-center justify-between px-4 py-5 md:px-8 xl:px-16">
         <MemoLogoIcon />
         <div className="flex justify-start gap-4 md:gap-8">
           <button className="text-xs font-medium text-gray-50">
