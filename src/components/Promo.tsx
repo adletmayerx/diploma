@@ -4,7 +4,7 @@ import Image from "next/image";
 const Promo = () => {
   return (
     <section className="flex justify-center bg-tiber">
-      <div className=" flex max-w-7xl flex-col items-center justify-start gap-11  py-16 px-3 md:gap-12 md:px-24 md:pt-36 md:pb-20 xl:flex-row-reverse xl:justify-between xl:gap-48 xl:py-20 xl:px-16">
+      <div className=" flex w-full max-w-7xl flex-col items-center justify-start gap-11  py-16 px-3 md:gap-12 md:px-24 md:pt-36 md:pb-20 xl:flex-row-reverse xl:justify-between xl:gap-48 xl:py-20 xl:px-16">
         <div className="relative h-206px w-210px shrink-0 md:h-304px md:w-310px">
           <Image src="/landing-logo.png" alt="landing logo" fill />
         </div>
