@@ -7,6 +7,9 @@ const config = {
         shamrock: "#3DDC84",
         tiber: "#073042",
         "mine-shaft": "#202020",
+        "night-rider": "#303030",
+        nobel: "#A0A0A0",
+        nero: "#202020",
       },
       width: {
         "210px": "210px",
