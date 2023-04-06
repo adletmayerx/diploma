@@ -1,5 +1,5 @@
 import React from "react";
-import { SectionHeading } from "./shared";
+import { SectionHeading, SectionText } from "./shared";
 
 const About = () => {
   return (
@@ -11,19 +11,28 @@ const About = () => {
             <h3 className="text-lg text-gray-50">
               Дипломный проект включал 5&nbsp;этапов
             </h3>
-            <p className="text-xs text-gray-50 xl:text-sm">
+            <SectionText
+              text="Составление плана, работу над бэкендом, вёрстку, добавление
+              функциональности и&nbsp;финальные доработки."
+            />
+
+            {/* <p className="text-xs text-gray-50 xl:text-sm">
               Составление плана, работу над бэкендом, вёрстку, добавление
               функциональности и&nbsp;финальные доработки.
-            </p>
+            </p> */}
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="text-lg text-gray-50">
               На&nbsp;выполнение диплома ушло 5&nbsp;недель
             </h3>
-            <p className="text-xs text-gray-50 xl:text-sm">
+            <SectionText
+              text="У&nbsp;каждого этапа был мягкий и&nbsp;жёсткий дедлайн, которые
+              нужно было соблюдать, чтобы успешно защититься."
+            />
+            {/* <p className="text-xs text-gray-50 xl:text-sm">
               У&nbsp;каждого этапа был мягкий и&nbsp;жёсткий дедлайн, которые
               нужно было соблюдать, чтобы успешно защититься.
-            </p>
+            </p> */}
           </div>
         </div>
         <table className="w-full text-center align-middle text-xs xl:mt-28">
