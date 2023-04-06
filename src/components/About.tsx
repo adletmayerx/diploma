@@ -1,12 +1,11 @@
 import React from "react";
+import { SectionHeading } from "./shared";
 
 const About = () => {
   return (
     <section className="flex justify-center bg-nero">
       <div className="flex w-full max-w-7xl flex-col items-center justify-start gap-14 py-16 px-4 md:gap-16 md:px-12 md:py-20 xl:py-28 xl:px-16">
-        <h2 className="w-full border-b border-gray-200 pb-7 text-lg text-gray-50 md:text-xl">
-          О&nbsp;проекте
-        </h2>
+        <SectionHeading text="О&nbsp;проекте" borderColor="border-gray-200" />
         <div className="flex flex-col gap-14 md:flex-row md:gap-7">
           <div className="flex flex-col gap-4 md:gap-5">
             <h3 className="text-lg text-gray-50">
