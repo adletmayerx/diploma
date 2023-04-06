@@ -15,11 +15,6 @@ const About = () => {
               text="Составление плана, работу над бэкендом, вёрстку, добавление
               функциональности и&nbsp;финальные доработки."
             />
-
-            {/* <p className="text-xs text-gray-50 xl:text-sm">
-              Составление плана, работу над бэкендом, вёрстку, добавление
-              функциональности и&nbsp;финальные доработки.
-            </p> */}
           </div>
           <div className="flex flex-col gap-4">
             <h3 className="text-lg text-gray-50">
@@ -29,10 +24,6 @@ const About = () => {
               text="У&nbsp;каждого этапа был мягкий и&nbsp;жёсткий дедлайн, которые
               нужно было соблюдать, чтобы успешно защититься."
             />
-            {/* <p className="text-xs text-gray-50 xl:text-sm">
-              У&nbsp;каждого этапа был мягкий и&nbsp;жёсткий дедлайн, которые
-              нужно было соблюдать, чтобы успешно защититься.
-            </p> */}
           </div>
         </div>
         <table className="w-full text-center align-middle text-xs xl:mt-28">
