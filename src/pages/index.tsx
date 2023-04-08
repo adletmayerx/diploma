@@ -1,11 +1,12 @@
 import { type NextPage } from "next";
-import { Promo, About } from "~/components";
+import { Promo, About, Technologies } from "~/components";
 
 const Home: NextPage = () => {
   return (
     <>
       <Promo />
       <About />
+      <Technologies />
     </>
   );
 };

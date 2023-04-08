@@ -10,6 +10,7 @@ const config = {
         "night-rider": "#303030",
         nobel: "#A0A0A0",
         nero: "#202020",
+        "charleston-green": "#272727",
       },
       width: {
         "210px": "210px",
