@@ -9,7 +9,6 @@ const config = {
         "mine-shaft": "#202020",
         "night-rider": "#303030",
         nobel: "#A0A0A0",
-        nero: "#202020",
         "charleston-green": "#272727",
       },
       width: {

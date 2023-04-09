@@ -3,7 +3,7 @@ import { SectionHeading, SectionText } from "./shared";
 
 const About = () => {
   return (
-    <section className="flex justify-center bg-nero">
+    <section className="flex justify-center bg-mine-shaft">
       <div className="flex w-full max-w-7xl flex-col items-center justify-start gap-14 py-16 px-4 md:gap-16 md:px-12 md:py-20 xl:py-28 xl:px-16">
         <SectionHeading text="О&nbsp;проекте" />
         <div className="flex flex-col gap-14 md:flex-row md:gap-7">

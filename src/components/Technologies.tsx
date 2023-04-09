@@ -12,7 +12,7 @@ const Technologies = () => {
   ];
 
   return (
-    <section className="flex justify-center bg-charleston-green">
+    <section className="flex justify-center bg-mine-shaft">
       <div className="flex w-full max-w-7xl flex-col items-center justify-start py-16 px-4 md:px-12 md:py-24 xl:py-24 xl:px-16">
         <SectionHeading text="Технологии" />
         <h3 className="mt-14 text-3xl tracking-tighter text-gray-50 md:mt-20 md:text-5xl xl:mt-24">
