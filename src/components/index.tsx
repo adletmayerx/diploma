@@ -3,5 +3,6 @@ import Layout from "./Layout";
 import Promo from "./Promo";
 import About from "./About";
 import Technologies from "./Technologies";
+import Student from "./Student";
 
-export { Header, Layout, Promo, About, Technologies };
+export { Header, Layout, Promo, About, Technologies, Student };
