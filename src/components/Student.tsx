@@ -17,6 +17,14 @@ const Student = () => {
         <h3 className="mt-14 text-3xl tracking-tighter text-gray-50 md:mt-20 md:text-5xl xl:mt-24">
           Артур
         </h3>
+        <SectionText>
+          Я&nbsp;родился и&nbsp;живу в&nbsp;Саратове, закончил факультет
+          экономики СГУ. У&nbsp;меня есть жена и&nbsp;дочь. Я&nbsp;люблю слушать
+          музыку, а&nbsp;ещё увлекаюсь бегом. Недавно начал кодить. С&nbsp;2015
+          года работал в&nbsp;компании &laquo;СКБ Контур&raquo;. После того, как
+          прошёл курс по&nbsp;веб-разработке, начал заниматься фриланс-заказами
+          и&nbsp;ушёл с&nbsp;постоянной работы.
+        </SectionText>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { SectionHeading } from "./shared";
+import { SectionHeading, SectionText } from "./shared";
 
 const Technologies = () => {
   const technologiesArray = [
@@ -18,10 +18,10 @@ const Technologies = () => {
         <h3 className="mt-14 text-3xl tracking-tighter text-gray-50 md:mt-20 md:text-5xl xl:mt-24">
           7&nbsp;технологий
         </h3>
-        <p className="mt-6 text-center text-xs tracking-tighter text-gray-50">
+        <SectionText className="mt-6 text-center tracking-tighter">
           На&nbsp;курсе веб-разработки мы&nbsp;освоили технологии, которые
           применили в&nbsp;дипломном проекте.
-        </p>
+        </SectionText>
         <ul className="column mt-12 flex w-44 flex-wrap justify-between gap-2 p-0 text-xs text-gray-50 md:mt-20 md:w-full md:justify-center md:gap-3 xl:mt-24">
           {technologiesArray.map((tech, i) => {
             return (

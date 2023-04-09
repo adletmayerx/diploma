@@ -1,11 +1,11 @@
 import clsx from "clsx";
 
 type Props = {
-  text: string;
+  children: string;
   className?: string;
 };
 
-const SectionText = ({ text, className }: Props) => {
+const SectionText = ({ children, className }: Props) => {
   return (
     <p
       className={clsx(
@@ -13,7 +13,7 @@ const SectionText = ({ text, className }: Props) => {
         className && className
       )}
     >
-      {text}
+      {children}
     </p>
   );
 };
