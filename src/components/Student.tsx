@@ -1,6 +1,7 @@
 import { SectionHeading, SectionText, LinkComponent } from "./shared";
 import Image from "next/image";
 import clsx from "clsx";
+import MemoLinkArrowIcon from "./icons/LinkArrowIcon";
 
 const Student = () => {
   const SOCIALS = [
@@ -78,8 +79,13 @@ const Student = () => {
                       "border-b border-gray-200 pb-5"
                   )}
                 >
-                  <LinkComponent link={project.link}>
-                    {project.name}
+                  <LinkComponent
+                    link={project.link}
+                    className="inline-flex w-full justify-between"
+                  >
+                    <span>{project.name}</span>
+                    {/* <span>&#8599;</span> */}
+                    <MemoLinkArrowIcon />
                   </LinkComponent>
                 </li>
               );
