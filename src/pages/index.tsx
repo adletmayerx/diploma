@@ -1,5 +1,5 @@
 import { type NextPage } from "next";
-import { Promo, About, Technologies, Student } from "~/components";
+import { Promo, About, Technologies, Student, Footer } from "~/components";
 
 const Home: NextPage = () => {
   return (
@@ -8,6 +8,7 @@ const Home: NextPage = () => {
       <About />
       <Technologies />
       <Student />
+      <Footer />
     </>
   );
 };
