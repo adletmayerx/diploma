@@ -16,7 +16,7 @@ const Promo = () => {
             Листайте ниже, чтобы узнать больше про этот проект и&nbsp;его
             создателя.
           </p>
-          <button className="mt-20 h-9 w-32 rounded border border-gray-50  align-middle text-xs md:mt-24 xl:mt-36">
+          <button className="mt-20 h-9 w-32 rounded border border-gray-50  align-middle text-xs transition-opacity duration-300 hover:opacity-80 md:mt-24 xl:mt-36">
             Узнать больше
           </button>
         </div>
