@@ -2,6 +2,7 @@ import React from "react";
 import MemoLogoIcon from "./icons/HeaderLogoIcon";
 import clsx from "clsx";
 import { useRouter } from "next/router";
+import { Button } from "./shared";
 
 const Header = () => {
   const router = useRouter();
@@ -12,15 +13,15 @@ const Header = () => {
         router.pathname === "/" ? "bg-tiber" : "bg-mine-shaft",
       ])}
     >
-      <div className="flex max-w-7xl w-full items-center justify-between px-4 py-5 md:px-8 xl:px-16">
+      <div className="flex w-full max-w-7xl items-center justify-between px-4 py-5 md:px-8 xl:px-16">
         <MemoLogoIcon />
         <div className="flex justify-start gap-4 md:gap-8">
-          <button className="text-xs font-medium text-gray-50">
+          <Button className="text-xs font-medium text-gray-50">
             Регистрация
-          </button>
-          <button className="h-7 w-14 rounded bg-shamrock align-middle text-xs font-medium leading-relaxed text-gray-900 md:h-8 md:w-20">
+          </Button>
+          <Button className="h-7 w-14 rounded bg-shamrock align-middle text-xs font-medium leading-relaxed text-gray-900 md:h-8 md:w-20">
             Войти
-          </button>
+          </Button>
         </div>
       </div>
     </header>
