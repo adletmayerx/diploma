@@ -12,6 +12,8 @@ const config = {
         "charleston-green": "#272727",
         "suva-grey": "#8B8B8B",
         charcoal: "#424242",
+        "royal-blue": "#4285F4",
+        "dark-charcoal": "#2F2F2F",
       },
       width: {
         "210px": "210px",
