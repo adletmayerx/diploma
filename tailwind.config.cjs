@@ -14,6 +14,7 @@ const config = {
         charcoal: "#424242",
         "royal-blue": "#4285F4",
         "dark-charcoal": "#2F2F2F",
+        "raisin-black": "#222222",
       },
       width: {
         "210px": "210px",

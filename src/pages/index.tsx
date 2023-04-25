@@ -1,7 +1,7 @@
 import { type NextPage } from "next";
 import { Promo, About, Technologies, Student, Footer } from "~/components";
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <>
       <Promo />
@@ -13,4 +13,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

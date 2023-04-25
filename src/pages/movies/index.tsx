@@ -1,14 +1,15 @@
 import { type NextPage } from "next";
-import { Search } from "~/components";
+import { Movies, Search } from "~/components";
 
-const Movies: NextPage = () => {
+const MoviesPage: NextPage = () => {
   return (
     <div className="flex flex-col items-center bg-mine-shaft">
       <div className="flex w-full max-w-7xl flex-col">
         <Search />
+        <Movies />
       </div>
     </div>
   );
 };
 
-export default Movies;
+export default MoviesPage;
