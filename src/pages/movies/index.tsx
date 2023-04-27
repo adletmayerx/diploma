@@ -45,7 +45,7 @@ const MoviesPage: NextPage = () => {
     <div className="flex flex-col items-center bg-mine-shaft">
       <div className="flex w-full max-w-7xl flex-col">
         <Search />
-        <Movies movies={MOVIES} CardComponent={MoviesCard} />
+        <Movies movies={MOVIES} CardComponent={MoviesCard} cardType={"movies"} />
         <Button
           className={
             "mx-auto mt-12 mb-20 flex h-9 w-60 items-center justify-center rounded-md bg-dark-charcoal text-xs font-medium text-gray-50 md:w-80"
