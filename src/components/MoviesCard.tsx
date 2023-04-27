@@ -1,13 +1,6 @@
 import Image from "next/image";
 import { MemoHeartIcon, MemoHeartFilledIcon } from "./icons";
-
-type Props = {
-  image: string;
-  description: string;
-  title: string;
-  duration: string;
-  isSaved: boolean;
-};
+import { type CardComponentType } from "~/types";
 
 const MoviesCard = ({
   image,
@@ -15,7 +8,7 @@ const MoviesCard = ({
   title,
   duration,
   isSaved,
-}: Props) => {
+}: CardComponentType) => {
   return (
     <div className="flex shrink-0 flex-col overflow-hidden rounded bg-raisin-black">
       <div className="relative h-40 w-72 shrink-0 overflow-hidden rounded md:h-44 md:w-80 xl:h-56 xl:w-96">
