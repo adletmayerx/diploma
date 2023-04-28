@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MemoHeartIcon, MemoHeartFilledIcon, MemoRemoveIcon } from "./icons";
 import { type CardComponentType } from "~/types";
+import { Button } from "./shared";
 
 const MoviesCard = ({
   type,
@@ -18,13 +19,15 @@ const MoviesCard = ({
       <div className="flex flex-col gap-3 p-3">
         <div className="flex items-center justify-between">
           <p className="grow text-xs font-medium text-gray-50">{title}</p>
-          {type === "favorites" ? (
-            <MemoRemoveIcon />
-          ) : isSaved ? (
-            <MemoHeartFilledIcon />
-          ) : (
-            <MemoHeartIcon />
-          )}
+          <Button className="">
+            {type === "favorites" ? (
+              <MemoRemoveIcon />
+            ) : isSaved ? (
+              <MemoHeartFilledIcon />
+            ) : (
+              <MemoHeartIcon />
+            )}
+          </Button>
         </div>
         <p className="text-xs text-suva-grey">{duration}</p>
       </div>
