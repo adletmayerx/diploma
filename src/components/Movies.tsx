@@ -4,7 +4,7 @@ import { type CardComponentType } from "~/types";
 type Props = {
   movies: Array<Omit<CardComponentType, "type">>;
   CardComponent: FC<CardComponentType>;
-  cardType: "movies" | "favourites";
+  cardType: "movies" | "favorites";
 };
 
 const Movies = ({ movies, CardComponent, cardType }: Props) => {
