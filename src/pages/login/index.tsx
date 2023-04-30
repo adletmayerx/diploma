@@ -6,7 +6,7 @@ import { useState } from "react";
 import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
 import Link from "next/link";
 
-const LoginPage: NextPage = () => {
+const RegisterPage: NextPage = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const passwordButtonImageSrc = isPasswordVisible
@@ -19,13 +19,13 @@ const LoginPage: NextPage = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col justify-start">
-      <header className="flex flex-col items-center justify-start gap-12 pt-14 pb-20">
+    <div className="flex h-screen flex-col items-center justify-start pb-7 md:pt-56 md:pb-44 xl:pt-16  xl:pb-16">
+      <header className="flex w-64 flex-col items-center justify-start gap-12 pt-14 pb-20 md:w-96 md:items-start md:pb-10">
         <MemoHeaderLogoIcon />
         <h1 className="text-2xl font-medium text-gray-50">Рады видеть!</h1>
       </header>
-      <main className="flex w-full flex-col justify-start px-7 pb-7 grow">
-        <form className="flex flex-col justify-between grow">
+      <main className="flex w-64 grow flex-col justify-start md:w-96 ">
+        <form className="flex grow flex-col justify-between">
           <fieldset className="flex flex-col justify-start gap-5">
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
               Email
@@ -56,15 +56,15 @@ const LoginPage: NextPage = () => {
               </div>
             </label>
           </fieldset>
-          <div className="mt-auto flex flex-col items-center justify-start gap-4">
+          <div className="flex flex-col items-center justify-start gap-4">
             <Button
               type="submit"
-              className="flex h-12 w-full items-center justify-center rounded bg-royal-blue text-gray-50"
+              className="flex h-12 w-full items-center justify-center rounded bg-royal-blue text-sm text-gray-50"
             >
               Войти
             </Button>
-            <p className="text-xs text-suva-grey">
-              Ещё не&nbsp;зарегистрированы?{" "}
+            <p className="text-xs text-suva-grey md:text-sm">
+              Ещё не зарегистрированы?{" "}
               <Link href="/register" className="text-royal-blue">
                 Регистрация
               </Link>
@@ -76,4 +76,4 @@ const LoginPage: NextPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
