@@ -19,13 +19,13 @@ const RegisterPage: NextPage = () => {
   };
 
   return (
-    <>
-      <header className="flex flex-col items-center justify-start gap-12 pt-14 pb-20">
+    <div className="flex h-screen flex-col items-center justify-start pb-7 md:pt-56 md:pb-44 xl:pt-16  xl:pb-16">
+      <header className="flex w-64 flex-col items-center justify-start gap-12 pt-14 pb-20 md:w-96 md:items-start md:pb-10">
         <MemoHeaderLogoIcon />
         <h1 className="text-2xl font-medium text-gray-50">Добро пожаловать!</h1>
       </header>
-      <main className="flex w-full flex-col justify-start px-7 pb-7">
-        <form className="flex flex-col justify-start gap-40">
+      <main className="flex w-64 grow flex-col justify-start md:w-96 md:pb-44   xl:pb-16">
+        <form className="flex grow flex-col justify-between">
           <fieldset className="flex flex-col justify-start gap-5">
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
               Имя
@@ -64,14 +64,14 @@ const RegisterPage: NextPage = () => {
               </div>
             </label>
           </fieldset>
-          <div className="flex flex-col items-center justify-start gap-4 mt-auto">
+          <div className="flex flex-col items-center justify-start gap-4">
             <Button
               type="submit"
-              className="flex h-12 w-full items-center justify-center rounded bg-royal-blue text-gray-50"
+              className="flex h-12 w-full items-center justify-center rounded bg-royal-blue text-sm text-gray-50"
             >
               Зарегистрироваться
             </Button>
-            <p className="text-xs text-suva-grey">
+            <p className="text-xs text-suva-grey md:text-sm">
               Уже зарегистрированы?{" "}
               <Link href="/login" className="text-royal-blue">
                 Войти
@@ -80,7 +80,7 @@ const RegisterPage: NextPage = () => {
           </div>
         </form>
       </main>
-    </>
+    </div>
   );
 };
 
