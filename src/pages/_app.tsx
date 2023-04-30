@@ -16,7 +16,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
 
   return (
     <SessionProvider session={session}>
-      {router.pathname === "signin" || router.pathname === "signup" ? (
+      {router.pathname === "/register" || router.pathname === "/login" ? (
         <Component {...pageProps} />
       ) : (
         <Layout>
