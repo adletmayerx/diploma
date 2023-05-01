@@ -1,6 +1,11 @@
 import { type NextPage } from "next";
 import { Button } from "~/components/shared";
-import { MemoHeaderLogoIcon } from "~/components/icons";
+import {
+  MemoHeaderLogoIcon,
+  MemoGithubLogoIcon,
+  MemoDiscordLogoIcon,
+  MemoGoogleLogoIcon,
+} from "~/components/icons";
 import Image from "next/image";
 import { useState } from "react";
 import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
@@ -63,6 +68,35 @@ const RegisterPage: NextPage = () => {
             >
               Войти
             </Button>
+            <ul className="m-0 flex list-none items-start justify-start gap-2 p-0">
+              <li className="inline-flex items-center justify-center rounded bg-suva-grey p-0">
+                <Link
+                  href={""}
+                  title="Войти с помощью Github"
+                  className="inline-flex w-12 items-center justify-center p-0"
+                >
+                  <MemoGithubLogoIcon />
+                </Link>
+              </li>
+              <li className="inline-flex items-center justify-center rounded bg-suva-grey p-0">
+                <Link
+                  href={""}
+                  title="Войти с помощью Google"
+                  className="inline-flex w-12 items-center justify-center p-0"
+                >
+                  <MemoGoogleLogoIcon />
+                </Link>
+              </li>
+              <li className="inline-flex items-center justify-center rounded bg-suva-grey p-0">
+                <Link
+                  href={""}
+                  title="Войти с помощью Discord"
+                  className="inline-flex w-12 items-center justify-center p-0"
+                >
+                  <MemoDiscordLogoIcon />
+                </Link>
+              </li>
+            </ul>
             <p className="text-xs text-suva-grey md:text-sm">
               Ещё не зарегистрированы?{" "}
               <Link href="/register" className="text-royal-blue">
