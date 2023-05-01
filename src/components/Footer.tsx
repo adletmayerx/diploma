@@ -23,7 +23,7 @@ const Footer = () => {
               );
             })}
           </ul>
-          <span className="text-xs text-suva-grey md:text-sm">&copy; 2023</span>
+          <span className="text-xs text-suva-grey md:text-sm">&copy; 2023 Icons by <a target="_blank" href="https://icons8.com">Icons8</a></span>
         </div>
       </div>
     </footer>
