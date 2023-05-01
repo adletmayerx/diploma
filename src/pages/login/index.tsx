@@ -1,4 +1,5 @@
 import { type NextPage } from "next";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { Button } from "~/components/shared";
 import {
   MemoHeaderLogoIcon,
@@ -21,6 +22,15 @@ const RegisterPage: NextPage = () => {
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
+  };
+  const handleGithubLoginButtonClick = () => {
+    void signIn("github", { callbackUrl: "/" });
+  };
+  const handleGoogleLoginButtonClick = () => {
+    void signIn("google", { callbackUrl: "/" });
+  };
+  const handleDiscordLoginButtonClick = () => {
+    void signIn("discord", { callbackUrl: "/" });
   };
 
   return (
@@ -70,31 +80,31 @@ const RegisterPage: NextPage = () => {
             </Button>
             <ul className="m-0 flex list-none items-start justify-start gap-2 p-0">
               <li className="inline-flex items-center justify-center rounded bg-dark-charcoal p-0 hover:bg-github">
-                <Link
-                  href={""}
+                <Button
                   title="Войти с помощью Github"
                   className="inline-flex w-12 items-center justify-center p-0"
+                  onClick={handleGithubLoginButtonClick}
                 >
                   <MemoGithubLogoIcon />
-                </Link>
+                </Button>
               </li>
               <li className="inline-flex items-center justify-center rounded bg-dark-charcoal p-0 hover:bg-google">
-                <Link
-                  href={""}
+                <Button
                   title="Войти с помощью Google"
                   className="inline-flex w-12 items-center justify-center p-0"
+                  onClick={handleGoogleLoginButtonClick}
                 >
                   <MemoGoogleLogoIcon />
-                </Link>
+                </Button>
               </li>
               <li className="inline-flex items-center justify-center rounded bg-dark-charcoal p-0 hover:bg-discord">
-                <Link
-                  href={""}
+                <Button
                   title="Войти с помощью Discord"
                   className="inline-flex w-12 items-center justify-center p-0"
+                  onClick={handleDiscordLoginButtonClick}
                 >
                   <MemoDiscordLogoIcon />
-                </Link>
+                </Button>
               </li>
             </ul>
             <p className="text-xs text-suva-grey md:text-sm">
