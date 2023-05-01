@@ -3,6 +3,9 @@ import MemoLinkArrowIcon from "./LinkArrowIcon";
 import MemoHeartIcon from "./HeartIcon";
 import MemoHeartFilledIcon from "./HeartFilledIcon";
 import MemoRemoveIcon from "./RemoveIcon";
+import MemoGithubLogoIcon from "./GithubLogoIcon";
+import MemoDiscordLogoIcon from "./DiscordLogoIcon";
+import MemoGoogleLogoIcon from "./GoogleLogoIcon";
 
 export {
   MemoHeaderLogoIcon,
@@ -10,4 +13,7 @@ export {
   MemoHeartIcon,
   MemoHeartFilledIcon,
   MemoRemoveIcon,
+  MemoGithubLogoIcon,
+  MemoDiscordLogoIcon,
+  MemoGoogleLogoIcon,
 };
