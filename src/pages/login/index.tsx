@@ -69,7 +69,7 @@ const RegisterPage: NextPage = () => {
               Войти
             </Button>
             <ul className="m-0 flex list-none items-start justify-start gap-2 p-0">
-              <li className="inline-flex items-center justify-center rounded bg-suva-grey p-0">
+              <li className="inline-flex items-center justify-center rounded bg-dark-charcoal p-0 hover:bg-github">
                 <Link
                   href={""}
                   title="Войти с помощью Github"
@@ -78,7 +78,7 @@ const RegisterPage: NextPage = () => {
                   <MemoGithubLogoIcon />
                 </Link>
               </li>
-              <li className="inline-flex items-center justify-center rounded bg-suva-grey p-0">
+              <li className="inline-flex items-center justify-center rounded bg-dark-charcoal p-0 hover:bg-google">
                 <Link
                   href={""}
                   title="Войти с помощью Google"
@@ -87,7 +87,7 @@ const RegisterPage: NextPage = () => {
                   <MemoGoogleLogoIcon />
                 </Link>
               </li>
-              <li className="inline-flex items-center justify-center rounded bg-suva-grey p-0">
+              <li className="inline-flex items-center justify-center rounded bg-dark-charcoal p-0 hover:bg-discord">
                 <Link
                   href={""}
                   title="Войти с помощью Discord"

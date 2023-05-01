@@ -15,6 +15,9 @@ const config = {
         "royal-blue": "#4285F4",
         "dark-charcoal": "#2F2F2F",
         "raisin-black": "#222222",
+        google: "#dc4e41",
+        github: '#161514',
+        discord: '#7289da'
       },
       width: {
         "210px": "210px",
