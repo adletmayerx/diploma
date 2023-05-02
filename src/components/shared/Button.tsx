@@ -22,7 +22,7 @@ const Button = ({
     <button
       type={type}
       className={clsx(
-        "transition-opacity duration-300 hover:opacity-80",
+        "cursor-pointer transition-opacity duration-300 hover:opacity-80",
         className && className
       )}
       title={title}
