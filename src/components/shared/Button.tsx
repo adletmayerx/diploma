@@ -6,6 +6,7 @@ type Props = {
   className?: string;
   type?: "button" | "submit" | "reset";
   title?: string;
+  disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
@@ -14,6 +15,7 @@ const Button = ({
   type = "button",
   className,
   title,
+  disabled = false,
   onClick,
 }: Props) => {
   return (
@@ -24,6 +26,7 @@ const Button = ({
         className && className
       )}
       title={title}
+      disabled={disabled}
       onClick={onClick}
     >
       {children}
