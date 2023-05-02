@@ -1,11 +1,11 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, type ChangeEvent } from "react";
 
 function useFormWithValidation() {
-  const [values, setValues] = useState({});
-  const [errors, setErrors] = useState({});
+  const [values, setValues] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isValid, setIsValid] = useState(false);
 
-  const handleChange = (e: Event) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const input = e.target as HTMLInputElement;
     const value = input.value;
     const name = input.name;
