@@ -78,6 +78,8 @@ const RegisterPage: NextPage = () => {
                   type={passwordInputType}
                   className="grow rounded-lg bg-dark-charcoal p-4 text-sm text-gray-50"
                   placeholder="Введите пароль"
+                  minLength={5}
+                  maxLength={32}
                   required
                   value={values.password || ""}
                   onChange={handleChange}

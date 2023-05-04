@@ -1,16 +1,18 @@
+import clsx from "clsx";
 import { type NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { Button } from "~/components/shared";
-import {
-  MemoHeaderLogoIcon,
-  MemoGithubLogoIcon,
-  MemoDiscordLogoIcon,
-  MemoGoogleLogoIcon,
-} from "~/components/icons";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
-import { useState } from "react";
-import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
 import Link from "next/link";
+import { useState } from "react";
+import {
+  MemoDiscordLogoIcon,
+  MemoGithubLogoIcon,
+  MemoGoogleLogoIcon,
+  MemoHeaderLogoIcon,
+} from "~/components/icons";
+import { Button } from "~/components/shared";
+import useFormWithValidation from "~/hooks/use-form";
+import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
 
 const RegisterPage: NextPage = () => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -19,6 +21,8 @@ const RegisterPage: NextPage = () => {
     ? PASSWORD_BUTTON_IMAGE_SRC.show
     : PASSWORD_BUTTON_IMAGE_SRC.hide;
   const passwordInputType = isPasswordVisible ? "text" : "password";
+
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -45,18 +49,36 @@ const RegisterPage: NextPage = () => {
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
               Email
               <input
+                name="email"
                 type="email"
                 className="w-full rounded-lg bg-dark-charcoal p-4 text-sm text-gray-50"
                 placeholder="Введите имя"
+                required
+                value={values.email || ""}
+                onChange={handleChange}
               />
+              <span
+                className={clsx(
+                  "text-xs text-red-600",
+                  errors.email ? "visible" : "hidden"
+                )}
+              >
+                {errors.email}
+              </span>
             </label>
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
               Пароль
               <div className="flex items-center justify-start rounded-lg bg-dark-charcoal pr-4">
                 <input
+                  name="password"
                   type={passwordInputType}
                   className="grow rounded-lg bg-dark-charcoal p-4 text-sm text-gray-50"
                   placeholder="Введите имя"
+                  required
+                  minLength={5}
+                  maxLength={32}
+                  value={values.password || ""}
+                  onChange={handleChange}
                 />
                 <Button onClick={togglePasswordVisibility}>
                   <Image
@@ -69,12 +91,22 @@ const RegisterPage: NextPage = () => {
                   ></Image>
                 </Button>
               </div>
+              <span
+                className={clsx(
+                  "text-xs text-red-600",
+                  errors.password ? "visible" : "hidden"
+                )}
+              >
+                {errors.password}
+              </span>
             </label>
           </fieldset>
           <div className="flex flex-col items-center justify-start gap-4">
             <Button
               type="submit"
-              className="flex h-12 w-full items-center justify-center rounded bg-royal-blue text-sm text-gray-50"
+              className={`flex h-12 w-full items-center justify-center rounded bg-royal-blue text-sm text-gray-50 
+                           disabled:cursor-default disabled:bg-zinc-50 disabled:text-gray-900 disabled:opacity-100 disabled:hover:bg-zinc-50`}
+              disabled={!isValid}
             >
               Войти
             </Button>
