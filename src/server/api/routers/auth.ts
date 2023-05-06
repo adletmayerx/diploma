@@ -4,8 +4,7 @@ import { hash } from "argon2";
 
 import {
   createTRPCRouter,
-  publicProcedure,
-  protectedProcedure,
+  publicProcedure
 } from "~/server/api/trpc";
 
 import { signUpSchema } from "~/validation/auth";
