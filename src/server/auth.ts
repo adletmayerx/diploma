@@ -86,13 +86,13 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "credentials",
       credentials: {},
-      authorize: async (credentials, req) => {
+      authorize: async (credentials) => {
         const parsedCredentials = await loginSchema.parseAsync(credentials);
         const user = await prisma.user.findFirst({
           where: { email: parsedCredentials.email },
         });
 
-        if (!user) {
+        if (!user || !user.password) {
           return null;
         }
 
