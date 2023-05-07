@@ -1,7 +1,9 @@
 import { useState, useCallback, type ChangeEvent } from "react";
 
-function useFormWithValidation() {
-  const [values, setValues] = useState<Record<string, string>>({});
+function useFormWithValidation(initialValues?: Record<string, string>) {
+  const [values, setValues] = useState<Record<string, string>>(
+    initialValues ?? {}
+  );
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isValid, setIsValid] = useState(false);
 
