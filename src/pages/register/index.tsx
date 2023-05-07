@@ -1,16 +1,33 @@
-import { type NextPage } from "next";
-import { Button } from "~/components/shared";
-import { MemoHeaderLogoIcon } from "~/components/icons";
-import Image from "next/image";
-import { useState } from "react";
-import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
-import Link from "next/link";
-import useFormWithValidation from "~/hooks/use-form";
 import clsx from "clsx";
+import { type NextPage } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { MemoHeaderLogoIcon } from "~/components/icons";
+import { Button } from "~/components/shared";
+import useFormWithValidation from "~/hooks/use-form";
+import { api } from "~/utils/api";
+import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
+import { signUpSchema } from "~/validation/auth";
 
 const RegisterPage: NextPage = () => {
+  const router = useRouter();
+
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormWithValidation();
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+
+  const { mutate, isLoading } = api.auth.signUp.useMutation({
+    onSuccess: () => {
+      resetForm();
+      void router.push("/");
+    },
+    onError: (e) => {
+      console.error(e);
+    },
+  });
 
   const passwordButtonImageSrc = isPasswordVisible
     ? PASSWORD_BUTTON_IMAGE_SRC.show
@@ -20,6 +37,12 @@ const RegisterPage: NextPage = () => {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const parsedValues = signUpSchema.parse(values);
+
+    mutate(parsedValues);
+  };
 
   return (
     <div className="flex h-screen flex-col items-center justify-start pb-7 md:pt-56 md:pb-44 xl:pt-16  xl:pb-16">
@@ -27,24 +50,27 @@ const RegisterPage: NextPage = () => {
         <MemoHeaderLogoIcon />
         <h1 className="text-2xl font-medium text-gray-50">Добро пожаловать!</h1>
       </header>
-      <main className="flex w-64 grow flex-col justify-start md:w-96 md:pb-44   xl:pb-16">
-        <form className="flex grow flex-col justify-between">
+      <main className="flex w-64 grow flex-col justify-start md:w-96 md:pb-44 xl:pb-16">
+        <form
+          className="flex grow flex-col justify-between gap-5"
+          onSubmit={(e: React.SyntheticEvent) => handleSubmit(e)}
+        >
           <fieldset className="flex flex-col justify-start gap-5">
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
               Имя
               <input
-                name="userName"
+                name="username"
                 type="text"
                 className="w-full rounded-lg bg-dark-charcoal p-4 text-sm text-gray-50"
                 placeholder="Введите имя"
                 required
-                value={values.userName || ""}
+                value={values.username || ""}
                 onChange={handleChange}
               />
               <span
                 className={clsx(
                   "text-xs text-red-600",
-                  errors.userName ? "visible" : "hidden"
+                  errors.username ? "visible" : "hidden"
                 )}
               >
                 {errors.userName}
@@ -110,7 +136,7 @@ const RegisterPage: NextPage = () => {
               type="submit"
               className={`flex h-12 w-full items-center justify-center rounded bg-royal-blue text-sm text-gray-50 
                           disabled:cursor-default disabled:bg-zinc-50 disabled:text-gray-900 disabled:opacity-100 disabled:hover:bg-zinc-50`}
-              disabled={!isValid}
+              disabled={!isValid || isLoading}
             >
               Зарегистрироваться
             </Button>

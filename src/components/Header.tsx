@@ -1,13 +1,11 @@
+import clsx from "clsx";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import MemoLogoIcon from "./icons/HeaderLogoIcon";
-import clsx from "clsx";
-import { useRouter } from "next/router";
-import { Button } from "./shared";
-import Link from "next/link";
 
 const Header = () => {
   const router = useRouter();
-
   return (
     <header
       className={clsx("flex justify-center", [

@@ -10,7 +10,7 @@ import {
 import { signUpSchema } from "~/validation/auth";
 
 export const authRouter = createTRPCRouter({
-  signUp: publicProcedure.input(signUpSchema).query(async ({ input, ctx }) => {
+  signUp: publicProcedure.input(signUpSchema).mutation(async ({ input, ctx }) => {
     const { username, email, password } = input;
 
     const exists = await ctx.prisma.user.findFirst({ where: { email } });

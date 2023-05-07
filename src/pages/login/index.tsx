@@ -36,6 +36,15 @@ const RegisterPage: NextPage = () => {
   const handleDiscordLoginButtonClick = () => {
     void signIn("discord", { callbackUrl: "/" });
   };
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    void signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      callbackUrl: "/",
+    });
+  };
 
   return (
     <div className="flex h-screen flex-col items-center justify-start pb-7 md:pt-56 md:pb-44 xl:pt-16  xl:pb-16">
@@ -44,7 +53,10 @@ const RegisterPage: NextPage = () => {
         <h1 className="text-2xl font-medium text-gray-50">Рады видеть!</h1>
       </header>
       <main className="flex w-64 grow flex-col justify-start md:w-96 ">
-        <form className="flex grow flex-col justify-between">
+        <form
+          className="flex grow flex-col justify-between gap-5"
+          onSubmit={(e: React.SyntheticEvent) => handleSubmit(e)}
+        >
           <fieldset className="flex flex-col justify-start gap-5">
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
               Email

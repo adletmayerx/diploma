@@ -42,7 +42,10 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
-  jwt: { secret: "super-secret", maxAge: 15 * 24 * 30 * 60 },
+  jwt: { maxAge: 15 * 24 * 30 * 60 },
+  session: {
+    strategy: "jwt",
+  },
   pages: {
     signIn: "/login",
     newUser: "/register",
@@ -57,12 +60,10 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
 
-    session({ session, user }) {
-      if (session.user) {
-        session.user.id = user.id;
-        // session.user.role = user.role; <-- put other properties on the session here
-      }
-      if (session.expires) {
+    session: ({ session, token }) => {
+      if (typeof token?.id === "string") {
+        // session.id = token.id;
+        session.user.id = token.id;
       }
 
       return session;
@@ -84,14 +85,7 @@ export const authOptions: NextAuthOptions = {
     }),
     CredentialsProvider({
       name: "credentials",
-      credentials: {
-        email: {
-          label: "Email",
-          type: "email",
-          placeholder: "jsmith@gmail.com",
-        },
-        password: { label: "Password", type: "password" },
-      },
+      credentials: {},
       authorize: async (credentials, req) => {
         const parsedCredentials = await loginSchema.parseAsync(credentials);
         const user = await prisma.user.findFirst({
@@ -103,7 +97,7 @@ export const authOptions: NextAuthOptions = {
         }
 
         const isValidPassword = await verify(
-          user.password as string,
+          user.password,
           parsedCredentials.password
         );
 
