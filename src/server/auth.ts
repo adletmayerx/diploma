@@ -64,6 +64,7 @@ export const authOptions: NextAuthOptions = {
       if (typeof token?.id === "string") {
         // session.id = token.id;
         session.user.id = token.id;
+        session.user.image = null
       }
 
       return session;
