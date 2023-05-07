@@ -3,17 +3,28 @@ import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
+import { Button } from "~/components/shared";
 import useFormWithValidation from "~/hooks/use-form";
 
 const ProfilePage: NextPage = () => {
-  const session = useSession();
+  const { data } = useSession();
+
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation();
 
+  if (!data?.user.name) {
+    return (
+      <div className="text-4xl text-green-50">
+        Ошибка авторизации! иди фиксить
+      </div>
+    );
+  }
+  const name = data.user.name;
+
   return (
-    <div className="flex flex-col items-center justify-start px-7 pt-16 pb-9">
-      <h1 className="text-2xl text-gray-50 "></h1>
-      <form className="flex w-full flex-col justify-start">
+    <div className="flex grow flex-col items-center justify-start px-7 pt-16 pb-9">
+      <h1 className="text-2xl text-gray-50">{`Привет, ${name}`}</h1>
+      <form className="mt-20 flex  w-full grow flex-col justify-between">
         <fieldset className="flex flex-col justify-start gap-4 text-xs text-gray-50">
           <label className="flex flex-col border-b border-charcoal pb-4">
             <div className="flex justify-between gap-1">
@@ -27,18 +38,18 @@ const ProfilePage: NextPage = () => {
                 value={values.username || ""}
                 onChange={handleChange}
               />
-              <span
-                className={clsx(
-                  "text-xs text-red-600",
-                  errors.username ? "visible" : "hidden"
-                )}
-              >
-                {errors.username}
-              </span>
             </div>
+            <span
+              className={clsx(
+                "self-end text-xs text-red-600",
+                errors.username ? "visible" : "hidden"
+              )}
+            >
+              {errors.username}
+            </span>
           </label>
-          <label className="flex flex-col gap-2 gap-1">
-            <div className="flex justify-between">
+          <label className="flex flex-col gap-2">
+            <div className="flex justify-between gap-1">
               <span>Email</span>
               <input
                 name="email"
@@ -52,7 +63,7 @@ const ProfilePage: NextPage = () => {
             </div>
             <span
               className={clsx(
-                "text-xs text-red-600",
+                "self-end text-xs text-red-600",
                 errors.email ? "visible" : "hidden"
               )}
             >
@@ -60,7 +71,13 @@ const ProfilePage: NextPage = () => {
             </span>
           </label>
         </fieldset>
+
+        <Button className="text-xs text-gray-50">Редактировать</Button>
       </form>
+
+      <Button className="mt-4 text-xs text-red-600">
+        Выйти из&nbsp;аккаунта
+      </Button>
     </div>
   );
 };
