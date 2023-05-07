@@ -73,7 +73,7 @@ const RegisterPage: NextPage = () => {
                   errors.username ? "visible" : "hidden"
                 )}
               >
-                {errors.userName}
+                {errors.username}
               </span>
             </label>
             <label className="flex flex-col justify-start gap-2 text-xs text-suva-grey">
