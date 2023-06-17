@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Button } from "~/components/shared";
 import useFormWithValidation from "~/hooks/use-form";
 import { authOptions } from "~/server/auth";
+import { signOut } from "next-auth/react";
 
 const ProfilePage: NextPage = () => {
   const { data } = useSession();
@@ -81,7 +82,10 @@ const ProfilePage: NextPage = () => {
             Редактировать
           </Button>
         </form>
-        <Button className="mt-4 text-xs text-red-600 md:text-sm">
+        <Button
+          className="mt-4 text-xs text-red-600 md:text-sm"
+          onClick={() => void signOut()}
+        >
           Выйти из&nbsp;аккаунта
         </Button>
       </div>
