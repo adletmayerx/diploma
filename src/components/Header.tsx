@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import MemoLogoIcon from "./icons/HeaderLogoIcon";
+import ModalMenu from "./ModalMenu";
 
 const Header = () => {
   const router = useRouter();
@@ -29,6 +30,9 @@ const Header = () => {
           </Link>
         </div>
       </div>
+      <ModalMenu onClose={function (): unknown {
+        throw new Error("Function not implemented.");
+      } } title={""}></ModalMenu>
     </header>
   );
 };
