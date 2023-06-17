@@ -3,6 +3,7 @@ import { type NextPage } from "next";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import {
   MemoDiscordLogoIcon,
@@ -15,6 +16,8 @@ import useFormWithValidation from "~/hooks/use-form";
 import { PASSWORD_BUTTON_IMAGE_SRC } from "~/utils/constants";
 
 const RegisterPage: NextPage = () => {
+  const router = useRouter();
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const passwordButtonImageSrc = isPasswordVisible
@@ -36,20 +39,25 @@ const RegisterPage: NextPage = () => {
   const handleDiscordLoginButtonClick = () => {
     void signIn("discord", { callbackUrl: "/" });
   };
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    void signIn("credentials", {
+    const res = await signIn("credentials", {
       email: values.email,
       password: values.password,
-      callbackUrl: "/",
+      redirect: false,
     });
+
+    console.log(res);
   };
 
   return (
     <div className="flex h-screen flex-col items-center justify-start pb-7 md:pt-56 md:pb-44 xl:pt-16  xl:pb-16">
       <header className="flex w-64 flex-col items-center justify-start gap-12 pt-14 pb-20 md:w-96 md:items-start md:pb-10">
-        <MemoHeaderLogoIcon />
+        <MemoHeaderLogoIcon
+          className="cursor-pointer"
+          onClick={() => router.push("/")}
+        />
         <h1 className="text-2xl font-medium text-gray-50">Рады видеть!</h1>
       </header>
       <main className="flex w-64 grow flex-col justify-start md:w-96 ">

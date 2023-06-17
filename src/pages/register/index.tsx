@@ -47,7 +47,10 @@ const RegisterPage: NextPage = () => {
   return (
     <div className="flex h-screen flex-col items-center justify-start pb-7 md:pt-56 md:pb-44 xl:pt-16  xl:pb-16">
       <header className="flex w-64 flex-col items-center justify-start gap-12 pt-14 pb-20 md:w-96 md:items-start md:pb-10">
-        <MemoHeaderLogoIcon />
+        <MemoHeaderLogoIcon
+          className="cursor-pointer"
+          onClick={() => router.push("/")}
+        />
         <h1 className="text-2xl font-medium text-gray-50">Добро пожаловать!</h1>
       </header>
       <main className="flex w-64 grow flex-col justify-start md:w-96 md:pb-44 xl:pb-16">

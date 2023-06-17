@@ -13,7 +13,7 @@ const Header = () => {
       ])}
     >
       <div className="flex w-full max-w-7xl items-center justify-between px-4 py-5 md:px-8 xl:px-16">
-        <MemoLogoIcon />
+        <MemoLogoIcon className="cursor-pointer" onClick={() => router.push('/')} />
         <div className="flex justify-start gap-4 md:gap-8">
           <Link
             className="inline-flex items-center justify-center text-xs font-medium text-gray-50"
