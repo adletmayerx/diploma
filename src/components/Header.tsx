@@ -1,12 +1,18 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import MemoLogoIcon from "./icons/HeaderLogoIcon";
 import ModalMenu from "./ModalMenu";
 
 const Header = () => {
   const router = useRouter();
+  const [isModalVisible, setIsModalVisible] = useState(true);
+
+  const onModalCloseButtonClick = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <header
       className={clsx("flex justify-center", [
@@ -14,7 +20,10 @@ const Header = () => {
       ])}
     >
       <div className="flex w-full max-w-7xl items-center justify-between px-4 py-5 md:px-8 xl:px-16">
-        <MemoLogoIcon className="cursor-pointer" onClick={() => router.push('/')} />
+        <MemoLogoIcon
+          className="cursor-pointer"
+          onClick={() => router.push("/")}
+        />
         <div className="flex justify-start gap-4 md:gap-8">
           <Link
             className="inline-flex items-center justify-center text-xs font-medium text-gray-50"
@@ -30,9 +39,11 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <ModalMenu onClose={function (): unknown {
-        throw new Error("Function not implemented.");
-      } } title={""}></ModalMenu>
+      <ModalMenu
+        isVisible={isModalVisible}
+        onCloseButtonClick={onModalCloseButtonClick}
+        pathname={router.pathname}
+      ></ModalMenu>
     </header>
   );
 };
