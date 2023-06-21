@@ -8,6 +8,8 @@ import { Button } from "~/components/shared";
 import useFormWithValidation from "~/hooks/use-form";
 import { authOptions } from "~/server/auth";
 import { signOut } from "next-auth/react";
+import { api } from "~/utils/api";
+import { profileEditSchema } from "~/validation/profile";
 
 const ProfilePage: NextPage = () => {
   const { data } = useSession();
@@ -25,13 +27,34 @@ const ProfilePage: NextPage = () => {
     );
   }
 
+  const { mutate, isLoading } = api.profile.edit.useMutation({
+    onSuccess: () => {
+      //todo popup success
+    },
+    onError: (e) => {
+      //todo popup error
+      console.error(e);
+    },
+  });
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    const parsedValues = profileEditSchema.parse(values);
+
+    mutate(parsedValues);
+  };
+
   return (
     <div className="flex grow flex-col items-center justify-start px-7 pt-16 pb-9 md:pt-32 md:pb-10">
       <div className="flex w-64 grow flex-col justify-start md:w-96">
         <h1 className="text-center text-2xl text-gray-50">{`Привет, ${
           name || "иди фиксить"
         }`}</h1>
-        <form className="mt-20 flex w-full grow flex-col justify-between gap-52 md:grow-0 md:justify-start">
+        <form
+          className="mt-20 flex w-full grow flex-col justify-between gap-52 md:grow-0 md:justify-start"
+          onSubmit={handleSubmit}
+        >
           <fieldset className="flex flex-col justify-start gap-4 text-xs text-gray-50">
             <label className="flex flex-col border-b border-charcoal pb-4">
               <div className="flex justify-between gap-1">
@@ -78,7 +101,7 @@ const ProfilePage: NextPage = () => {
               </span>
             </label>
           </fieldset>
-          <Button className="text-xs text-gray-50 md:text-sm">
+          <Button type="submit" className="text-xs text-gray-50 md:text-sm">
             Редактировать
           </Button>
         </form>
