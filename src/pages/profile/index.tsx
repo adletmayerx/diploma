@@ -84,7 +84,7 @@ const ProfilePage: NextPage = () => {
         </form>
         <Button
           className="mt-4 text-xs text-red-600 md:text-sm"
-          onClick={() => void signOut()}
+          onClick={() => void signOut({ callbackUrl: "/" })}
         >
           Выйти из&nbsp;аккаунта
         </Button>
