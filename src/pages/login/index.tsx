@@ -19,6 +19,7 @@ const RegisterPage: NextPage = () => {
   const router = useRouter();
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const passwordButtonImageSrc = isPasswordVisible
     ? PASSWORD_BUTTON_IMAGE_SRC.show
@@ -42,13 +43,22 @@ const RegisterPage: NextPage = () => {
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
 
-    const res = await signIn("credentials", {
-      email: values.email,
-      password: values.password,
-      redirect: false,
-    });
+    try {
+      setIsDisabled(true);
+      const res = await signIn("credentials", {
+        email: values.email,
+        password: values.password,
+        redirect: false,
+      });
 
-    console.log(res);
+      if (res?.status === 200) {
+        void router.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsDisabled(false);
+    }
   };
 
   return (
@@ -154,6 +164,7 @@ const RegisterPage: NextPage = () => {
                   title="Войти с помощью Discord"
                   className="inline-flex w-12 items-center justify-center p-0"
                   onClick={handleDiscordLoginButtonClick}
+                  disabled={isDisabled}
                 >
                   <MemoDiscordLogoIcon />
                 </Button>
