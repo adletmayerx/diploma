@@ -35,13 +35,13 @@ const ModalMenu = ({ isVisible, onCloseButtonClick, pathname }: Props) => {
     ? createPortal(
         <div
           className={clsx(
-            "absolute top-0 left-0 flex h-screen w-full flex-col overflow-hidden",
-            !isVisible && "pointer-events-none"
+            "absolute top-0 left-0 flex h-screen w-full flex-col items-end overflow-hidden md:bg-gray-900/30",
+            !isVisible && "pointer-events-none md:bg-transparent"
           )}
         >
           <div
             className={clsx(
-              "relative flex h-full w-full flex-col items-center justify-start bg-mine-shaft pt-36 pb-24 transition-transform duration-700",
+              "relative flex h-full w-full flex-col items-center justify-start bg-mine-shaft pt-36 pb-24 transition-transform duration-700 md:w-2/3",
               !isVisible && "translate-x-full"
             )}
           >
