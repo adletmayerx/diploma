@@ -7,6 +7,8 @@ import MemoGithubLogoIcon from "./GithubLogoIcon";
 import MemoDiscordLogoIcon from "./DiscordLogoIcon";
 import MemoGoogleLogoIcon from "./GoogleLogoIcon";
 import MemoCloseIcon from "./CloseIcon";
+import MemoProfileIcon from "./ProfileIcon";
+
 
 export {
   MemoHeaderLogoIcon,
@@ -17,5 +19,6 @@ export {
   MemoGithubLogoIcon,
   MemoDiscordLogoIcon,
   MemoGoogleLogoIcon,
-  MemoCloseIcon
+  MemoCloseIcon,
+  MemoProfileIcon,
 };
