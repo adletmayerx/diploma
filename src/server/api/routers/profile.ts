@@ -19,4 +19,16 @@ export const profileRouter = createTRPCRouter({
         result: result,
       };
     }),
+  getCurrentUser: publicProcedure.query(async ({ ctx }) => {
+    const id = ctx.session?.user.id;
+    const result = await ctx.prisma.user.findFirst({
+      where: { id },
+    });
+
+    return {
+      status: 200,
+      message: "Account updated successfully",
+      result: result,
+    };
+  }),
 });
