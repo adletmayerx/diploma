@@ -12,9 +12,8 @@ import { signUpSchema } from "~/validation/auth";
 export const authRouter = createTRPCRouter({
   signUp: publicProcedure.input(signUpSchema).mutation(async ({ input, ctx }) => {
     const { username, email, password } = input;
-
     const exists = await ctx.prisma.user.findFirst({ where: { email } });
-
+    
     if (exists) {
       throw new trpc.TRPCError({
         code: "CONFLICT",
@@ -23,9 +22,8 @@ export const authRouter = createTRPCRouter({
     }
 
     const hashedPassword = await hash(password);
-
     const result = await ctx.prisma.user.create({
-      data: { name: username, email, password: hashedPassword },
+      data: { name: username, email, password: hashedPassword, isCredentials: true },
     });
 
     return {
