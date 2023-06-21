@@ -8,7 +8,7 @@ import MemoDiscordLogoIcon from "./DiscordLogoIcon";
 import MemoGoogleLogoIcon from "./GoogleLogoIcon";
 import MemoCloseIcon from "./CloseIcon";
 import MemoProfileIcon from "./ProfileIcon";
-
+import MemoMenuBurgerIcon from "./MenuBurgerIcon";
 
 export {
   MemoHeaderLogoIcon,
@@ -21,4 +21,5 @@ export {
   MemoGoogleLogoIcon,
   MemoCloseIcon,
   MemoProfileIcon,
+  MemoMenuBurgerIcon,
 };
