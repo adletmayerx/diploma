@@ -24,13 +24,13 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (router.pathname === 'oldPathname') {
-      return
+    if (router.pathname === oldPathname) {
+      return;
     }
 
     setOldPathname(router.pathname);
     setIsModalVisible(false);
-  }, [router.pathname]);
+  }, [router.pathname, oldPathname]);
 
   return (
     <header
