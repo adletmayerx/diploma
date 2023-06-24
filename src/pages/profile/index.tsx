@@ -1,21 +1,17 @@
 import clsx from "clsx";
 import {
-  InferGetServerSidePropsType,
-  GetServerSideProps,
+  type InferGetServerSidePropsType,
+  type GetServerSideProps,
   type NextPage,
 } from "next";
 import { getServerSession } from "next-auth";
-import { useSession } from "next-auth/react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Button } from "~/components/shared";
 import useFormWithValidation from "~/hooks/use-form";
 import { authOptions } from "~/server/auth";
 import { signOut } from "next-auth/react";
 import { api } from "~/utils/api";
 import { profileEditSchema } from "~/validation/profile";
-import { useRouter } from "next/router";
-import { Session } from "next-auth/core/types";
+import { type Session } from "next-auth/core/types";
 
 const ProfilePage: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
