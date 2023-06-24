@@ -96,7 +96,11 @@ const ProfilePage: NextPage<
               </span>
             </label>
           </fieldset>
-          <Button type="submit" className="text-xs text-gray-50 md:text-sm">
+          <Button
+            type="submit"
+            className="text-xs text-gray-50 disabled:cursor-default disabled:text-charcoal md:text-sm"
+            disabled={isLoading || !isValid}
+          >
             Редактировать
           </Button>
         </form>
