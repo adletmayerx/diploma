@@ -1,31 +1,30 @@
 import clsx from "clsx";
-import { GetServerSideProps, type NextPage } from "next";
+import {
+  InferGetServerSidePropsType,
+  GetServerSideProps,
+  type NextPage,
+} from "next";
 import { getServerSession } from "next-auth";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "~/components/shared";
 import useFormWithValidation from "~/hooks/use-form";
 import { authOptions } from "~/server/auth";
 import { signOut } from "next-auth/react";
 import { api } from "~/utils/api";
 import { profileEditSchema } from "~/validation/profile";
+import { useRouter } from "next/router";
+import { Session } from "next-auth/core/types";
 
-const ProfilePage: NextPage = () => {
-  const { data } = useSession();
+const ProfilePage: NextPage<
+  InferGetServerSidePropsType<typeof getServerSideProps>
+> = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const name = data?.user.name;
   const email = data?.user.email;
 
   const { values, handleChange, errors, isValid, resetForm } =
     useFormWithValidation({ username: name || "", email: email || "" });
-
-  if (!data?.user.name || !data?.user.email) {
-    return (
-      <div className="text-4xl text-green-50">
-        Ошибка авторизации! иди фиксить
-      </div>
-    );
-  }
 
   const { mutate, isLoading } = api.profile.edit.useMutation({
     onSuccess: () => {
@@ -57,7 +56,7 @@ const ProfilePage: NextPage = () => {
         >
           <fieldset className="flex flex-col justify-start gap-4 text-xs text-gray-50">
             <label className="flex flex-col border-b border-charcoal pb-4">
-              <div className="flex justify-between gap-1">
+              <span className="flex justify-between gap-1">
                 <span className="">Имя</span>
                 <input
                   name="username"
@@ -68,7 +67,7 @@ const ProfilePage: NextPage = () => {
                   value={values.username || ""}
                   onChange={handleChange}
                 />
-              </div>
+              </span>
               <span
                 className={clsx(
                   "self-end text-xs text-red-600",
@@ -79,7 +78,7 @@ const ProfilePage: NextPage = () => {
               </span>
             </label>
             <label className="flex flex-col gap-2">
-              <div className="flex justify-between gap-1">
+              <span className="flex justify-between gap-1">
                 <span>Email</span>
                 <input
                   name="email"
@@ -90,7 +89,7 @@ const ProfilePage: NextPage = () => {
                   value={values.email || ""}
                   onChange={handleChange}
                 />
-              </div>
+              </span>
               <span
                 className={clsx(
                   "self-end text-xs text-red-600",
@@ -115,10 +114,23 @@ const ProfilePage: NextPage = () => {
     </div>
   );
 };
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps<{
+  data: Session;
+}> = async (context) => {
+  const data = await getServerSession(context.req, context.res, authOptions);
+
+  if (!data) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
-      session: await getServerSession(context.req, context.res, authOptions),
+      data,
     },
   };
 };
