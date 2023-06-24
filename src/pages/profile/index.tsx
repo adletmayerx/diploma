@@ -118,6 +118,7 @@ const ProfilePage: NextPage<
     </div>
   );
 };
+
 export const getServerSideProps: GetServerSideProps<{
   data: Session;
 }> = async (context) => {
