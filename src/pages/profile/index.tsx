@@ -35,6 +35,10 @@ const ProfilePage: NextPage<
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
 
+    if (isLoading || !isValid) {
+      return;
+    }
+
     const parsedValues = profileEditSchema.parse(values);
 
     mutate(parsedValues);
